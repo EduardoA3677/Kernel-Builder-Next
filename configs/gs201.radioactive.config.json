@@ -1,11 +1,11 @@
 [
     {
         "kernelSource": { 
-            "name": "k60-baalam", 
-            "repo": "https://github.com/luyanci/android_kernel_xiaomi_sm8475", 
-            "branch": "staging", 
-            "device": "mondrian", 
-            "defconfig": "vendor/mondrian_defconfig" 
+            "name": "P7P-Radioactibe", 
+            "repo": "https://github.com/EduardoA3677/RadioactiveKernel_Pantah", 
+            "branch": "A15-stable", 
+            "device": "gs201", 
+            "defconfig": "radioactive_defconfig" 
           }, 
           "toolchains": [ 
             {  
@@ -22,7 +22,7 @@
             "CC": "clang/bin/clang", 
             "externalCommands": { 
               "CROSS_COMPILE": "aarch64-linux-gnu-", 
-              "CROSS_COMPILE_ARM32": "arm-linux-gnueabi-", 
+              "CLANG_TRIPLE": "tools/bin/aarch64-linux-gnu-",
               "AS": "clang/bin/llvm-as", 
               "AR": "clang/bin/llvm-ar",  
               "NM":"clang/bin/llvm-nm" ,  
@@ -37,14 +37,14 @@
             "use": true, 
             "release": true,
             "custom": {
-              "repo": "https://github.com/luyanci/Ak3",
-              "branch": "k60"
+              "repo": "https://github.com/TheWildJames/AnyKernel3",
+              "branch": "15.0.0-sultan-gs201"
             }
           },
-          "enableKernelSU": true, 
+          "enableKernelSU": false, 
           "KernelSUSFS":{
-            "enable": true,
-            "branches": "gki-android12-5.10"
+            "enable": false,
+            "branches": "gki-android13-5.10"
           },
           "enableLXC": false        
     }
