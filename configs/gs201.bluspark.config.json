@@ -1,7 +1,7 @@
 [
     {
         "kernelSource": { 
-            "name": "Google-Pixel-7-Pro-BlueSpark[, 
+            "name": "Google-Pixel-7-Pro-BlueSpark", 
             "repo": "https://github.com/engstk/gs/tree/blu_spark-15", 
             "branch": "blu_spark-15", 
             "device": "gs201", 
@@ -30,6 +30,8 @@
               "OBJDUMP":"clang/bin/llvm-objdump",  
               "STRIP":"clang/bin/llvm-strip",  
               "LD":"clang/bin/ld.lld", 
+              "LLVM":"1",
+              "LLVM_IAS": "1",
               "LTO": "thin" 
             } 
           }, 
