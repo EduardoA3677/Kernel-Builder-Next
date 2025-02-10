@@ -36,7 +36,7 @@
               "HOSTCXX": "clang/bin/clang++",
               "LLVM": "1",
               "LLVM_IAS": "1",
-              "LTO": "thin" 
+              "LTO": "full" 
             } 
           }, 
           "AnyKernel3": { 
