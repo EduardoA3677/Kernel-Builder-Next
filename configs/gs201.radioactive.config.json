@@ -9,8 +9,8 @@
           }, 
           "toolchains": [ 
             {  
-               "url": "https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86/+archive/refs/tags/android-13.0.0_r0.65/clang-r450784e.tar.gz",  
-               "name": "clang",  
+               "url": "https://mirrors.edge.kernel.org/pub/tools/crosstool/files/bin/x86_64/14.2.0/x86_64-gcc-14.2.0-nolibc-aarch64-linux.tar.xz",  
+               "name": "gcc",  
                "binaryEnv": [
                 "bin"
             ]  
@@ -19,16 +19,16 @@
           "enableCcache": false, 
           "params": { 
             "ARCH": "arm64", 
-            "CC": "clang/bin/clang", 
+            "CC": "gcc/bin/aarch64-linux-gcc", 
             "externalCommands": { 
-              "CROSS_COMPILE": "aarch64-linux-gnu-", 
-              "AS": "clang/bin/llvm-as", 
-              "AR": "clang/bin/llvm-ar",  
-              "NM":"clang/bin/llvm-nm" ,  
-              "OBJCOPY":"clang/bin/llvm-objcopy",  
-              "OBJDUMP":"clang/bin/llvm-objdump",  
-              "STRIP":"clang/bin/llvm-strip",  
-              "LD":"clang/bin/ld.lld", 
+              "CROSS_COMPILE": "aarch64-linux-", 
+              "AS": "gcc/bin/aarch64-linux-as", 
+              "AR": "gcc/bin/aarch64-linux-ar",  
+              "NM":"gcc/bin/aarch64-linux-nm" ,  
+              "OBJCOPY":"gcc/bin/aarch64-linux-objcopy",  
+              "OBJDUMP":"gcc/bin/aarch64-linux-objdump",  
+              "STRIP":"gcc/bin/aarch64-linux-strip",  
+              "LD":"gcc/bin/aarch64-linux-ld", 
               "LTO": "thin" 
             } 
           }, 
