@@ -1,0 +1,57 @@
+[
+    {
+        "kernelSource": { 
+            "name": "Google-Pixel-7-Pro-Radioactive", 
+            "repo": "https://github.com/EduardoA3677/RadioactiveKernel_Pantah", 
+            "branch": "A15-stable", 
+            "device": "gs201", 
+            "defconfig": "radioactive_defconfig" 
+          }, 
+          "toolchains": [ 
+            {  
+               "url": "https://github.com/XSans0/WeebX-Clang/releases/download/WeebX-Clang-19.1.5-release/WeebX-Clang-19.1.5.tar.gz",  
+               "name": "clang",  
+               "binaryEnv": [
+                "bin"
+            ]  
+            } 
+          ], 
+          "enableCcache": true, 
+          "params": { 
+            "ARCH": "arm64", 
+            "CC": "clang/bin/clang",
+            "CXX": "clang/bin/clang++",
+            "externalCommands": { 
+              "CROSS_COMPILE": "aarch64-linux-gnu-", 
+              "AS": "clang/bin/llvm-as", 
+              "AR": "clang/bin/llvm-ar",  
+              "NM": "clang/bin/llvm-nm" ,  
+              "OBJCOPY": "clang/bin/llvm-objcopy",  
+              "OBJDUMP": "clang/bin/llvm-objdump",  
+              "STRIP": "clang/bin/llvm-strip",  
+              "LD": "clang/bin/ld.lld",
+              "READELF": "clang/bin/llvm-readelf",
+              "OBJSIZE": "clang/bin/llvm-size",
+              "HOSTCC": "clang/bin/clang",
+              "HOSTCXX": "clang/bin/clang++",
+              "LLVM": "1",
+              "LLVM_IAS": "1",
+              "LTO": "full" 
+            } 
+          }, 
+          "AnyKernel3": { 
+            "use": true, 
+            "release": true,
+            "custom": {
+              "repo": "https://github.com/TheWildJames/AnyKernel3",
+              "branch": "15.0.0-sultan-gs201"
+            }
+          },
+          "enableKernelSU": true, 
+          "KernelSUSFS":{
+            "enable": true,
+            "branches": "gki-android13-5.10"
+          },
+          "enableLXC": false        
+    }
+]
