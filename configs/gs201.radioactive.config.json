@@ -2,27 +2,26 @@
     {
         "kernelSource": { 
             "name": "P7P-Radioactibe", 
-            "repo": "https://github.com/EduardoA3677/RadioactiveKernel_Pantah", 
-            "branch": "A15-stable", 
+            "repo": "https://github.com/kerneltoast/android_kernel_google_gs201.git", 
+            "branch": "15.0.0-sultan", 
             "device": "gs201", 
-            "defconfig": "radioactive_defconfig" 
+            "defconfig": "gs201_defconfig" 
           }, 
           "toolchains": [ 
             {  
-               "url": "https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86/+archive/refs/heads/master/clang-r522817.tar.gz",  
+               "url": "https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86/+archive/refs/tags/android-13.0.0_r0.65/clang-r450784e.tar.gz",  
                "name": "clang",  
                "binaryEnv": [
                 "bin"
             ]  
             } 
           ], 
-          "enableCcache": true, 
+          "enableCcache": false, 
           "params": { 
             "ARCH": "arm64", 
             "CC": "clang/bin/clang", 
             "externalCommands": { 
               "CROSS_COMPILE": "aarch64-linux-gnu-", 
-              "CLANG_TRIPLE": "tools/bin/aarch64-linux-gnu-",
               "AS": "clang/bin/llvm-as", 
               "AR": "clang/bin/llvm-ar",  
               "NM":"clang/bin/llvm-nm" ,  
