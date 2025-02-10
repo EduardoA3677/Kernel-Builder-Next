@@ -19,18 +19,6 @@
           "enableCcache": false, 
           "params": { 
             "ARCH": "arm64", 
-            "CC": "gcc/bin/aarch64-linux-android-gcc", 
-            "externalCommands": { 
-              "CROSS_COMPILE": "aarch64-linux-android-", 
-              "AS": "gcc/bin/aarch64-linux-android-as", 
-              "AR": "gcc/bin/aarch64-linux-android-ar",  
-              "NM":"gcc/bin/aarch64-linux-android-nm" ,  
-              "OBJCOPY":"gcc/bin/aarch64-linux-android-objcopy",  
-              "OBJDUMP":"gcc/bin/aarch64-linux-android-objdump",  
-              "STRIP":"gcc/bin/aarch64-linux-android-strip",  
-              "LD":"gcc/bin/aarch64-linux-android-ld", 
-              "LTO": "thin" 
-            } 
           }, 
           "AnyKernel3": { 
             "use": true, 
