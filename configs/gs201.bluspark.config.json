@@ -2,7 +2,7 @@
     {
         "kernelSource": { 
             "name": "Google-Pixel-7-Pro-BlueSpark", 
-            "repo": "https://github.com/engstk/gs/tree/blu_spark-15", 
+            "repo": "https://github.com/engstk/gs", 
             "branch": "blu_spark-15", 
             "device": "gs201", 
             "defconfig": "blu_spark_gs201_defconfig" 
