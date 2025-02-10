@@ -1,7 +1,7 @@
 [
     {
         "kernelSource": { 
-            "name": "P7P-Radioactibe", 
+            "name": "Google-Pixel-7-Pro-Radioactive", 
             "repo": "https://github.com/EduardoA3677/RadioactiveKernel_Pantah", 
             "branch": "A15-stable", 
             "device": "gs201", 
