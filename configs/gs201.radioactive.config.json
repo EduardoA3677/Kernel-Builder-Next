@@ -19,7 +19,7 @@
           "enableCcache": false, 
           "params": { 
             "ARCH": "arm64", 
-            "CC": "gcc/bin/aarch64-linux-gcc-android", 
+            "CC": "gcc/bin/aarch64-linux-android-gcc", 
             "externalCommands": { 
               "CROSS_COMPILE": "aarch64-linux-android-", 
               "AS": "gcc/bin/aarch64-linux-android-as", 
