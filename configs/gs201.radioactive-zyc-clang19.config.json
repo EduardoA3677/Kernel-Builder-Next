@@ -47,9 +47,9 @@
               "branch": "15.0.0-sultan-gs201"
             }
           },
-          "enableKernelSU": true, 
+          "enableKernelSU": false, 
           "KernelSUSFS":{
-            "enable": true,
+            "enable": false,
             "branches": "gki-android13-5.10"
           },
           "enableLXC": false        
