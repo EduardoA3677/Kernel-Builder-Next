@@ -1,15 +1,15 @@
 [
     {
         "kernelSource": { 
-            "name": "Google-Pixel-7-Pro-BlueSpark", 
-            "repo": "https://github.com/engstk/gs", 
-            "branch": "blu_spark-15", 
+            "name": "Google-Pixel-7-Pro-Radioactive", 
+            "repo": "https://github.com/EduardoA3677/RadioactiveKernel_Pantah", 
+            "branch": "A15-stable", 
             "device": "gs201", 
-            "defconfig": "blu_spark_gs201_defconfig" 
+            "defconfig": "radioactive_defconfig" 
           }, 
           "toolchains": [ 
             {  
-               "url": "https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86/+archive/refs/heads/master/clang-r522817.tar.gz",  
+               "url": "https://github.com/ZyCromerZ/Clang/releases/download/21.0.0git-20250210-release/Clang-21.0.0git-20250210.tar.gz",  
                "name": "clang",  
                "binaryEnv": [
                 "bin"
@@ -29,10 +29,14 @@
               "OBJCOPY": "clang/bin/llvm-objcopy",  
               "OBJDUMP": "clang/bin/llvm-objdump",  
               "STRIP": "clang/bin/llvm-strip",  
-              "LD": "clang/bin/ld.lld", 
+              "LD": "clang/bin/ld.lld",
+              "READELF": "clang/bin/llvm-readelf",
+              "OBJSIZE": "clang/bin/llvm-size",
+              "HOSTCC": "clang/bin/clang",
+              "HOSTCXX": "clang/bin/clang++",
               "LLVM": "1",
               "LLVM_IAS": "1",
-              "LTO": "thin" 
+              "LTO": "full" 
             } 
           }, 
           "AnyKernel3": { 
