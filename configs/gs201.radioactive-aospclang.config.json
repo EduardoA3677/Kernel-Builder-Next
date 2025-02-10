@@ -34,7 +34,7 @@
               "READELF": "clang/bin/llvm-readelf",
               "OBJSIZE": "clang/bin/llvm-size",
               "HOSTCC": "clang/bin/clang",
-              "HOSTCXX": "clang/bin/clang++",
+              "HOSTCXX": "clang/bin/clang++"
             } 
           }, 
           "AnyKernel3": { 
