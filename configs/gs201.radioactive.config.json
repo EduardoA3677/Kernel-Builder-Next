@@ -9,7 +9,7 @@
           }, 
           "toolchains": [ 
             {  
-               "url": "https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86/+archive/refs/heads/master/clang-r522817.tar.gz",  
+               "url": "https://github.com/ZyCromerZ/Clang/releases/download/19.0.0git-20240723-release/Clang-19.0.0git-20240723.tar.gz",  
                "name": "clang",  
                "binaryEnv": [
                 "bin"
@@ -32,7 +32,7 @@
               "LD": "clang/bin/ld.lld",
               "LLVM": "1",
               "LLVM_IAS": "1",
-              "LTO": "full" 
+              "LTO": "thin" 
             } 
           }, 
           "AnyKernel3": { 
