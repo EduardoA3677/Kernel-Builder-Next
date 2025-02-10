@@ -2,23 +2,36 @@
     {
         "kernelSource": { 
             "name": "P7P-Radioactibe", 
-            "repo": "https://github.com/kerneltoast/android_kernel_google_gs201.git", 
-            "branch": "15.0.0-sultan", 
+            "repo": "https://github.com/EduardoA3677/RadioactiveKernel_Pantah", 
+            "branch": "A15-stable", 
             "device": "gs201", 
-            "defconfig": "gs201_defconfig" 
+            "defconfig": "radioactive_defconfig" 
           }, 
           "toolchains": [ 
             {  
-               "url": "https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9/+archive/961622e926a1b21382dba4dd9fe0e5fb3ee5ab7c.tar.gz",  
-               "name": "gcc",  
+               "url": "https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86/+archive/refs/heads/master/clang-r522817.tar.gz",  
+               "name": "clang",  
                "binaryEnv": [
                 "bin"
             ]  
             } 
           ], 
-          "enableCcache": false, 
+          "enableCcache": true, 
           "params": { 
             "ARCH": "arm64", 
+            "CC": "clang/bin/clang", 
+            "externalCommands": { 
+              "CROSS_COMPILE": "aarch64-linux-gnu-", 
+              "CLANG_TRIPLE": "tools/bin/aarch64-linux-gnu-",
+              "AS": "clang/bin/llvm-as", 
+              "AR": "clang/bin/llvm-ar",  
+              "NM":"clang/bin/llvm-nm" ,  
+              "OBJCOPY":"clang/bin/llvm-objcopy",  
+              "OBJDUMP":"clang/bin/llvm-objdump",  
+              "STRIP":"clang/bin/llvm-strip",  
+              "LD":"clang/bin/ld.lld", 
+              "LTO": "thin" 
+            } 
           }, 
           "AnyKernel3": { 
             "use": true, 
