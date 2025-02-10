@@ -7,44 +7,7 @@
             "branch": "A15-stable", 
             "device": "gs201", 
             "defconfig": "radioactive_defconfig" 
-          }, gs201.radioactive-weebxclang-19.config.json
-gs201.radioactive-zyc-clang19.config.json
-gs201.radioactive-zyc-clang21.config.json
-.gitignore
-LICENSE
-README.md
-README_cn.md
-README_vanlia.md
-Unsaved changes
-You have unsaved changes on this file that can be restored.
-Kernel-Builder-Next/configs
-/
-Name your file...
-in
-dev
-
-Edit
-
-Preview
-Indent mode
-
-Spaces
-Indent size
-
-2
-Line wrap mode
-
-No wrap
-Editing file contents
-1
-2
-3
-4
-5
-6
-7
-8
-9
+          },
           "toolchains": [ 
             {  
                "url": "https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86/+archive/refs/heads/master/clang-r522817.tar.gz",  
@@ -54,7 +17,7 @@ Editing file contents
             ]  
             } 
           ], 
-          "enableCcache": true, 
+          "enableCcache": false, 
           "params": { 
             "ARCH": "arm64", 
             "CC": "clang/bin/clang",
