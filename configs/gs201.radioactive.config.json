@@ -30,6 +30,10 @@
               "OBJDUMP": "clang/bin/llvm-objdump",  
               "STRIP": "clang/bin/llvm-strip",  
               "LD": "clang/bin/ld.lld",
+              "READELF": "clang/bin/llvm-readelf",
+              "OBJSIZE": "clang/bin/llvm-size",
+              "HOSTCC": "clang/bin/clang",
+              "HOSTCXX": "clang/bin/clang++"
               "LLVM": "1",
               "LLVM_IAS": "1",
               "LTO": "thin" 
