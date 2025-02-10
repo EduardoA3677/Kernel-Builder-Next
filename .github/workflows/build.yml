@@ -388,6 +388,16 @@ jobs:
           path: ${{ env.OUT_DIR }}/arch/${{ env.ARCH }}/boot/Image
           if-no-files-found: ignore
           retention-days: 7
+          
+      - name: 💛 Upload Image.lz4
+        uses: actions/upload-artifact@v4
+        env:
+          ARCH: ${{ steps.generate-args.outputs.ARCH }}
+        with:
+          name: ${{ env.KERNEL_NAME }}-${{ env.BUILD_DATE }}-Image.lz4
+          path: ${{ env.OUT_DIR }}/arch/${{ env.ARCH }}/boot/Image.lz4
+          if-no-files-found: ignore
+          retention-days: 7
 
       - name: 💙 Upload Image.gz
         uses: actions/upload-artifact@v4
@@ -468,6 +478,9 @@ jobs:
             fi
             if [ -e "${{ env.OUT_DIR }}/arch/${{ env.ARCH }}/boot/Image.gz" ]; then
               cp -f ${{ env.OUT_DIR }}/arch/${{ env.ARCH }}/boot/Image.gz ./AnyKernel3/
+            fi
+            if [ -e "${{ env.OUT_DIR }}/arch/${{ env.ARCH }}/boot/Image.lz4" ]; then
+              cp -f ${{ env.OUT_DIR }}/arch/${{ env.ARCH }}/boot/Image.lz4 ./AnyKernel3/
             fi
             if [ -e "${{ env.OUT_DIR }}/arch/${{ env.ARCH }}/boot/dtbo" ]; then
               cp -f ${{ env.OUT_DIR }}/arch/${{ env.ARCH }}/boot/dtbo ./AnyKernel3/
