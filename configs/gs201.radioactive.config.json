@@ -9,7 +9,7 @@
           }, 
           "toolchains": [ 
             {  
-               "url": "https://mirrors.edge.kernel.org/pub/tools/crosstool/files/bin/x86_64/14.2.0/x86_64-gcc-14.2.0-nolibc-aarch64-linux.tar.xz",  
+               "url": "https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9/+archive/961622e926a1b21382dba4dd9fe0e5fb3ee5ab7c.tar.gz",  
                "name": "gcc",  
                "binaryEnv": [
                 "bin"
@@ -19,16 +19,16 @@
           "enableCcache": false, 
           "params": { 
             "ARCH": "arm64", 
-            "CC": "gcc/bin/aarch64-linux-gcc", 
+            "CC": "gcc/bin/aarch64-linux-gcc-android", 
             "externalCommands": { 
-              "CROSS_COMPILE": "aarch64-linux-", 
-              "AS": "gcc/bin/aarch64-linux-as", 
-              "AR": "gcc/bin/aarch64-linux-ar",  
-              "NM":"gcc/bin/aarch64-linux-nm" ,  
-              "OBJCOPY":"gcc/bin/aarch64-linux-objcopy",  
-              "OBJDUMP":"gcc/bin/aarch64-linux-objdump",  
-              "STRIP":"gcc/bin/aarch64-linux-strip",  
-              "LD":"gcc/bin/aarch64-linux-ld", 
+              "CROSS_COMPILE": "aarch64-linux-android-", 
+              "AS": "gcc/bin/aarch64-linux-android-as", 
+              "AR": "gcc/bin/aarch64-linux-android-ar",  
+              "NM":"gcc/bin/aarch64-linux-android-nm" ,  
+              "OBJCOPY":"gcc/bin/aarch64-linux-android-objcopy",  
+              "OBJDUMP":"gcc/bin/aarch64-linux-android-objdump",  
+              "STRIP":"gcc/bin/aarch64-linux-android-strip",  
+              "LD":"gcc/bin/aarch64-linux-android-ld", 
               "LTO": "thin" 
             } 
           }, 
