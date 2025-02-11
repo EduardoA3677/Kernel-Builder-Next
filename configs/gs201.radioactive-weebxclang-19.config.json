@@ -3,7 +3,7 @@
         "kernelSource": { 
             "name": "Google-Pixel-7-Pro-Radioactive-WeebX", 
             "repo": "https://github.com/EduardoA3677/RadioactiveKernel_Pantah.git", 
-            "branch": "A15-stable", 
+            "branch": "a15", 
             "device": "gs201", 
             "defconfig": "radioactive_defconfig" 
           }, 
