@@ -440,7 +440,6 @@ jobs:
 
           if [ -e "${{ env.OUT_DIR }}/arch/${{ env.ARCH }}/boot/Image.lz4" ]; then
               cp -f ${{ env.OUT_DIR }}/arch/${{ env.ARCH }}/boot/Image.lz4 ./AnyKernel3/
-            fi
           else
             if [ -e "${{ env.OUT_DIR }}/arch/${{ env.ARCH }}/boot/dts/google/dtb" ]; then
               cp -f ${{ env.OUT_DIR }}/arch/${{ env.ARCH }}/boot/dts/google/dtb ./AnyKernel3/
