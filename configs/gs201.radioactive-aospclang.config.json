@@ -44,7 +44,7 @@
             "use": true, 
             "release": true,
             "custom": {
-              "repo": "https://github.com/TheWildJames/AnyKernel3",
+              "repo": "https://github.com/EduardoA3677/AnyKernel3.git",
               "branch": "15.0.0-sultan-gs201"
             }
           },
