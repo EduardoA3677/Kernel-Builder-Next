@@ -10,7 +10,7 @@
           },
           "toolchains": [ 
             {  
-               "url": "https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86/+archive/refs/heads/master/clang-r522817.tar.gz",  
+               "url": "https://dl.google.com/android/repository/android-ndk-r28-linux.zip",  
                "name": "clang",  
                "binaryEnv": [
                 "bin"
@@ -45,9 +45,9 @@
               "branch": "15.0.0-sultan-gs201"
             }
           },
-          "enableKernelSU": true, 
+          "enableKernelSU": false, 
           "KernelSUSFS":{
-            "enable": true,
+            "enable": false,
             "branches": "gki-android13-5.10"
           },
           "enableLXC": false        
