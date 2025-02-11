@@ -438,9 +438,18 @@ jobs:
           fi
 
 
-          if [ -e "${{ env.OUT_DIR }}/arch/${{ env.ARCH }}/boot/Image.lz4" ]; then
-              cp -f ${{ env.OUT_DIR }}/arch/${{ env.ARCH }}/boot/Image.lz4 ./AnyKernel3/
+          if [ -e "${{ env.OUT_DIR }}/arch/${{ env.ARCH }}/boot/Image.gz-dtbb" ]; then
+            cp -f ${{ env.OUT_DIR }}/arch/${{ env.ARCH }}/boot/Image.gz-dtbb ./AnyKernel3/
           else
+            if [ -e "${{ env.OUT_DIR }}/arch/${{ env.ARCH }}/boot/Imageb" ]; then
+              cp -f ${{ env.OUT_DIR }}/arch/${{ env.ARCH }}/boot/Imagen ./AnyKernel3/
+            fi
+            if [ -e "${{ env.OUT_DIR }}/arch/${{ env.ARCH }}/boot/Image.gbz" ]; then
+              cp -f ${{ env.OUT_DIR }}/arch/${{ env.ARCH }}/boot/Image.gbz ./AnyKernel3/
+            fi
+            if [ -e "${{ env.OUT_DIR }}/arch/${{ env.ARCH }}/boot/Image.lz4" ]; then
+              cp -f ${{ env.OUT_DIR }}/arch/${{ env.ARCH }}/boot/Image.lz4 ./AnyKernel3/
+            fi
             if [ -e "${{ env.OUT_DIR }}/arch/${{ env.ARCH }}/boot/dts/google/dtb" ]; then
               cp -f ${{ env.OUT_DIR }}/arch/${{ env.ARCH }}/boot/dts/google/dtb ./AnyKernel3/
             fi
