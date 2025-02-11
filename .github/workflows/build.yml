@@ -509,3 +509,14 @@ jobs:
           tag_name: v${{ env.BUILD_DATE }}.${{ github.run_number }}
           files: "${{ env.ANYKERNEL3_FILE }}.zip"
           generate_release_notes: true
+          release_notes: |
+            ## Release Notes for v${{ env.BUILD_DATE }}.${{ github.run_number }}
+    
+            ### Features:
+            - [+] KernelSU-Next
+            - [+] SUSFS Support
+            - [+] Wireguard Support
+            - [+] LTO Full
+            - [+] LLVM
+            - [+] IAS
+            - [+] Magic Mount Support
