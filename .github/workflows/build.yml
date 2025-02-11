@@ -260,7 +260,7 @@ jobs:
           SFS_BRANCH: ${{ matrix.CONFIG.KernelSUSFS.branches }}
         if: ${{ env.ENABLE_KERNELSU == 'true' && env.ENABLE_KERNELSU_SFS == 'true' }}
         run: |
-          git clone https://gitlab.com/ealvarado261500/susfs4ksu -b "${{env.SFS_BRANCH}}"
+          git clone https://gitlab.com/simonpunk/susfs4ksu.git -b "${{env.SFS_BRANCH}}"
           git clone https://github.com/luyanci/kernel_patches.git
 
           cd ${{env.KERNEL_NAME}}
