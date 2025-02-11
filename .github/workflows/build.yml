@@ -377,7 +377,7 @@ jobs:
           export KBUILD_BUILD_USER=$(echo ${{ github.actor }} | tr A-Z a-z)
           make ${{ env.ARGS }} ${{ env.KERNEL_DEFCONFIG_PATH }}
           make ${{ env.ARGS }}
-          cat /home/runner/work/Kernel-Builder-Next/Kernel-Builder-Next/out/arch/arm64/boot/dts/google/*.dtb > /home/runner/work/Kernel-Builder-Next/Kernel-Builder-Next/out/arch/arm64/boot/dts/google/dtb
+          cp /home/runner/work/Kernel-Builder-Next/Kernel-Builder-Next/out/arch/arm64/boot/dts/google/gs201-a0.dtb /home/runner/work/Kernel-Builder-Next/Kernel-Builder-Next/out/arch/arm64/boot/dts/google/dtb
           # tree ${{ env.OUT_DIR }}
       
       - name: 💛 Upload Image.lz4
