@@ -425,7 +425,7 @@ jobs:
           ARCH: ${{ steps.generate-args.outputs.ARCH }}
         with:
           name: ${{ env.KERNEL_NAME }}-${{ env.BUILD_DATE }}-dtb
-          path: ${{ env.OUT_DIR }}/arch/${{ env.ARCH }}/boot/dtb
+          path: ${{ env.OUT_DIR }}/arch/${{ env.ARCH }}/boot/dts/google/dtb
           if-no-files-found: ignore
           retention-days: 7
 
@@ -435,7 +435,7 @@ jobs:
           ARCH: ${{ steps.generate-args.outputs.ARCH }}
         with:
           name: ${{ env.KERNEL_NAME }}-${{ env.BUILD_DATE }}-dtbo.img
-          path: ${{ env.OUT_DIR }}/arch/${{ env.ARCH }}/boot/dtbo.img
+          path: ${{ env.OUT_DIR }}/arch/${{ env.ARCH }}/boot/dts/google/dtbo.img
           if-no-files-found: ignore
           retention-days: 7
 
@@ -463,9 +463,6 @@ jobs:
             echo "🤔 Use custom AnyKernel3 => ($ANYKERNEL_REPO)"
           else
             git clone --recursive --depth=1 -j $(nproc) https://github.com/osm0sis/AnyKernel3 AnyKernel3
-            sed -i 's/do.devicecheck=1/do.devicecheck=0/g' AnyKernel3/anykernel.sh
-            sed -i 's!block=/dev/block/platform/omap/omap_hsmmc.0/by-name/boot;!block=auto;!g' AnyKernel3/anykernel.sh
-            sed -i 's/is_slot_device=0;/is_slot_device=auto;/g' AnyKernel3/anykernel.sh
             echo "🤔 Use origin Anykernel3 => (https://github.com/osm0sis/AnyKernel3)"
           fi
 
@@ -482,11 +479,11 @@ jobs:
             if [ -e "${{ env.OUT_DIR }}/arch/${{ env.ARCH }}/boot/Image.lz4" ]; then
               cp -f ${{ env.OUT_DIR }}/arch/${{ env.ARCH }}/boot/Image.lz4 ./AnyKernel3/
             fi
-            if [ -e "${{ env.OUT_DIR }}/arch/${{ env.ARCH }}/boot/dtbo" ]; then
-              cp -f ${{ env.OUT_DIR }}/arch/${{ env.ARCH }}/boot/dtbo ./AnyKernel3/
+            if [ -e "${{ env.OUT_DIR }}/arch/${{ env.ARCH }}/boot/dts/google/dtb" ]; then
+              cp -f ${{ env.OUT_DIR }}/arch/${{ env.ARCH }}/boot/dts/google/dtb ./AnyKernel3/
             fi
-            if [ -e "${{ env.OUT_DIR }}/arch/${{ env.ARCH }}/boot/dtbo.img" ]; then
-              cp -f ${{ env.OUT_DIR }}/arch/${{ env.ARCH }}/boot/dtbo.img ./AnyKernel3/
+            if [ -e "${{ env.OUT_DIR }}/arch/${{ env.ARCH }}/boot/dts/google/dtbo.img" ]; then
+              cp -f ${{ env.OUT_DIR }}/arch/${{ env.ARCH }}/boot/dts/google/dtbo.img ./AnyKernel3/
             fi
           fi
 
