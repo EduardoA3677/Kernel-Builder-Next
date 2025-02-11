@@ -4,7 +4,7 @@
         "kernelSource": { 
             "name": "Google-Pixel-7-Pro-Radioactive-aosp", 
             "repo": "https://github.com/EduardoA3677/RadioactiveKernel_Pantah.git", 
-            "branch": "a15", 
+            "branch": "a15-nksu", 
             "device": "gs201", 
             "defconfig": "radioactive_defconfig" 
           },
@@ -48,9 +48,9 @@
               "branch": "15.0.0-sultan-gs201"
             }
           },
-          "enableKernelSU": false, 
+          "enableKernelSU": true, 
           "KernelSUSFS":{
-            "enable": false,
+            "enable": true,
             "branches": "gki-android13-5.10"
           },
           "enableLXC": false        
