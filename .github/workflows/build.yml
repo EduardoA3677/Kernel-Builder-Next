@@ -377,15 +377,9 @@ jobs:
           export KBUILD_BUILD_USER=$(echo ${{ github.actor }} | tr A-Z a-z)
           make ${{ env.ARGS }} ${{ env.KERNEL_DEFCONFIG_PATH }}
           make ${{ env.ARGS }}
+          cat ./out/arch/arm64/boot/dts/google/*.dtb > ./out/arch/arm64/boot/dts/google/dtb
           # tree ${{ env.OUT_DIR }}
       
-      - name: 🔧 Concatenate DTBs
-        env:
-          ARCH: ${{ steps.generate-args.outputs.ARCH }}
-          OUT_DIR: ${{ fromJSON(matrix.CONFIG.params).OUT_DIR }}
-        run: |
-          cat ${{ env.OUT_DIR }}/arch/${{ env.ARCH }}/boot/dts/google/*.dtb > ${{ env.OUT_DIR }}/arch/${{ env.ARCH }}/boot/dts/google/dtb
-
       - name: 💛 Upload Image.lz4
         uses: actions/upload-artifact@v4
         env:
