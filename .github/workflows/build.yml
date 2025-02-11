@@ -481,7 +481,7 @@ jobs:
           tag_name: v${{ env.BUILD_DATE }}.${{ github.run_number }}
           files: "${{ env.ANYKERNEL3_FILE }}.zip"
           generate_release_notes: true
-          release_notes: |
+          RELEASE_NOTES: |
             ## Release Notes for v${{ env.BUILD_DATE }}.${{ github.run_number }}
     
             ### Features:
