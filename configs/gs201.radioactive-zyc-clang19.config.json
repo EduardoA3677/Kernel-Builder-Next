@@ -2,7 +2,7 @@
     {
         "kernelSource": { 
             "name": "Google-Pixel-7-Pro-Radioactive", 
-            "repo": "https://github.com/EduardoA3677/RadioactiveKernel_Pantah", 
+            "repo": "https://github.com/acuicultor/RadioactiveKernel_Pantah.git", 
             "branch": "A15-stable", 
             "device": "gs201", 
             "defconfig": "radioactive_defconfig" 
