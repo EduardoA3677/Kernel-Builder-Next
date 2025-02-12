@@ -271,7 +271,7 @@ jobs:
           cd ./KernelSU-Next
           
           # Apply SUSFS patch for KernelSU
-          cp ../susfs4ksu/kernel_patches/KernelSU/10_enable_susfs_for_ksu.patch ./KernelSU-Next/
+          patch -p1 --forward < 10_enable_susfs_for_ksu.patch || true
           # Change to common directory and apply SUSFS patch
           cd ..
           patch -p1 < 50_add_susfs_in_${{env.SFS_BRANCH}}.patch || true
@@ -429,7 +429,7 @@ jobs:
         env:
           PARAMS: "${{ toJSON(matrix.CONFIG.AnyKernel3) }}"
           ARCH: ${{ steps.generate-args.outputs.ARCH }}
-          ANYKERNEL3_FILE: "${{ env.WORKSPACE }}/${{ KERNEL_KERNELNAME }}-${{ KERNEL_DEVICE }}-${{ KERNEL_CLANGNAME }}${{ KERNEL_ANDROIDVERSION }}-${{ env.BUILD_DATE }}"
+          ANYKERNEL3_FILE: "${{ env.WORKSPACE }}/${{ env.KERNEL_KERNELNAME }}-${{ env.KERNEL_DEVICE }}-${{ env.KERNEL_CLANGNAME }}${{ env.KERNEL_ANDROIDVERSION }}-${{ env.BUILD_DATE }}"
         run: |
           if echo -n '${{ env.PARAMS }}' | jq -e 'has("custom")' > /dev/null; then
             CUSTOM_ANYKERNEL3=$(echo -n '${{ env.PARAMS }}' | jq -r ".custom")
@@ -468,7 +468,7 @@ jobs:
 
       - name: "💾 Upload AnyKernel3 image => (${{ env.BUILD_DATE }})"
         env:
-          ANYKERNEL3_FILE: "${{ KERNEL_KERNELNAME }}-${{ KERNEL_DEVICE }}-${{ KERNEL_CLANGNAME }}${{ KERNEL_ANDROIDVERSION }}-${{ env.BUILD_DATE }}"
+          ANYKERNEL3_FILE: "${{ env.KERNEL_KERNELNAME }}-${{ env.KERNEL_DEVICE }}-${{ env.KERNEL_CLANGNAME }}${{ env.KERNEL_ANDROIDVERSION }}-${{ env.BUILD_DATE }}"
         uses: actions/upload-artifact@v4
         if: ${{ env.USE_ANYKERNEL3 == 'true' }}
         with:
@@ -477,7 +477,7 @@ jobs:
 
       - name: 🧧 Create GitHub Release => (${{ env.BUILD_DATE }})
         env:
-          ANYKERNEL3_FILE: "${{ env.WORKSPACE }}/${{ KERNEL_KERNELNAME }}-${{ KERNEL_DEVICE }}-${{ KERNEL_CLANGNAME }}${{ KERNEL_ANDROIDVERSION }}-${{ env.BUILD_DATE }}"
+          ANYKERNEL3_FILE: "${{ env.WORKSPACE }}/${{ env.KERNEL_KERNELNAME }}-${{ env.KERNEL_DEVICE }}-${{ env.KERNEL_CLANGNAME }}${{ env.KERNEL_ANDROIDVERSION }}-${{ env.BUILD_DATE }}"
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPO_OWNER: EduardoA3677
           REPO_NAME: Kernel-Builder-Next
