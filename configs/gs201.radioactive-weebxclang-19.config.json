@@ -6,7 +6,7 @@
             "branch": "a15-susfsnext",
             "device": "gs201",
             "clangname": "WeebX",
-            "kernelname": "RadioActive",
+            "kernelname": "Radioactive",
             "androidversion": "A15",
             "defconfig": "radioactive_defconfig" 
           }, 
