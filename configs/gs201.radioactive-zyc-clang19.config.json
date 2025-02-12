@@ -4,7 +4,10 @@
             "name": "Google-Pixel-7-Pro-Radioactive-zyc", 
             "repo": "https://github.com/EduardoA3677/RadioactiveKernel_Pantah.git", 
             "branch": "a15-nksu", 
-            "device": "gs201", 
+            "device": "gs201",
+            "clangname": "ZyC",
+            "kernelname": "RadioActive",
+            "androidversion": "A15",
             "defconfig": "radioactive_defconfig" 
           }, 
           "toolchains": [ 
