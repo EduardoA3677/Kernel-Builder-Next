@@ -245,7 +245,7 @@ jobs:
           fi
 
           # Apply new KernelSU patchesnext
-          curl -LSs "https://raw.githubusercontent.com/rifsxd/KernelSU-Next/next/kernel/setup.sh" | bash -s next
+          curl -LSs "https://raw.githubusercontent.com/EduardoA3677/KernelSU-Next/next/kernel/setup.sh" | bash -s next
           
           cat arch/${{ env.ARCH }}/configs/${{ env.KERNEL_DEFCONFIG_PATH }}
 
