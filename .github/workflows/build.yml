@@ -261,7 +261,7 @@ jobs:
         if: ${{ env.ENABLE_KERNELSU == 'true' && env.ENABLE_KERNELSU_SFS == 'true' }}
         run: |
           git clone https://gitlab.com/simonpunk/susfs4ksu.git -b "${{env.SFS_BRANCH}}"
-          git clone https://github.com/luyanci/kernel_patches.git
+          git clone https://github.com/WildPlusKernel/kernel_patches.git
 
           cd ${{env.KERNEL_NAME}}
           cp ../susfs4ksu/kernel_patches/KernelSU/10_enable_susfs_for_ksu.patch ./KernelSU-Next/
