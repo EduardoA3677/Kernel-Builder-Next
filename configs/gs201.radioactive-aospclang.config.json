@@ -7,7 +7,7 @@
             "branch": "a15-susfsnext", 
             "device": "gs201",
             "clangname": "AOSP",
-            "kernelname": "RadioActive",
+            "kernelname": "Radioactive",
             "androidversion": "A15",
             "defconfig": "radioactive_defconfig" 
           },
