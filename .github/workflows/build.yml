@@ -53,6 +53,9 @@ jobs:
       KERNEL_REPO: ${{ matrix.CONFIG.kernelSource.repo }}
       KERNEL_BRANCH: ${{ matrix.CONFIG.kernelSource.branch }}
       KERNEL_DEVICE: ${{ matrix.CONFIG.kernelSource.device }}
+      KERNEL_CLANGNAME: ${{ matrix.CONFIG.kernelSource.clangname }}
+      KERNEL_KERNELNAME: ${{ matrix.CONFIG.kernelSource.kernelname }}
+      KERNEL_ANDROIDVERSION: ${{ matrix.CONFIG.kernelSource.androidversion }}
       KERNEL_DEFCONFIG_PATH: ${{ matrix.CONFIG.kernelSource.defconfig }}
 
       # Whether to use ccache to speed up compilation
@@ -260,6 +263,7 @@ jobs:
           git clone https://github.com/WildPlusKernel/kernel_patches.git
 
           cd ${{env.KERNEL_NAME}}
+          cp ../susfs4ksu/kernel_patches/KernelSU/10_enable_susfs_for_ksu.patch ./KernelSU-Next/
           cp ../susfs4ksu/kernel_patches/50_add_susfs_in_${{env.SFS_BRANCH}}.patch ./
           cp ../susfs4ksu/kernel_patches/fs/* ./fs/
           cp ../susfs4ksu/kernel_patches/include/linux/* ./include/linux/
@@ -267,6 +271,7 @@ jobs:
           cd ./KernelSU-Next
           
           # Apply SUSFS patch for KernelSU
+          cp ../susfs4ksu/kernel_patches/KernelSU/10_enable_susfs_for_ksu.patch ./KernelSU-Next/
           # Change to common directory and apply SUSFS patch
           cd ..
           patch -p1 < 50_add_susfs_in_${{env.SFS_BRANCH}}.patch || true
@@ -424,7 +429,7 @@ jobs:
         env:
           PARAMS: "${{ toJSON(matrix.CONFIG.AnyKernel3) }}"
           ARCH: ${{ steps.generate-args.outputs.ARCH }}
-          ANYKERNEL3_FILE: "${{ env.WORKSPACE }}/AnyKernel3-${{ env.KERNEL_NAME }}-${{ env.BUILD_DATE }}"
+          ANYKERNEL3_FILE: "${{ env.WORKSPACE }}/${{ KERNEL_KERNELNAME }}-${{ KERNEL_DEVICE }}-${{ KERNEL_CLANGNAME }}${{ KERNEL_ANDROIDVERSION }}-${{ env.BUILD_DATE }}"
         run: |
           if echo -n '${{ env.PARAMS }}' | jq -e 'has("custom")' > /dev/null; then
             CUSTOM_ANYKERNEL3=$(echo -n '${{ env.PARAMS }}' | jq -r ".custom")
@@ -463,7 +468,7 @@ jobs:
 
       - name: "💾 Upload AnyKernel3 image => (${{ env.BUILD_DATE }})"
         env:
-          ANYKERNEL3_FILE: "AnyKernel3-${{ env.KERNEL_NAME }}-${{ env.BUILD_DATE }}"
+          ANYKERNEL3_FILE: "${{ KERNEL_KERNELNAME }}-${{ KERNEL_DEVICE }}-${{ KERNEL_CLANGNAME }}${{ KERNEL_ANDROIDVERSION }}-${{ env.BUILD_DATE }}"
         uses: actions/upload-artifact@v4
         if: ${{ env.USE_ANYKERNEL3 == 'true' }}
         with:
@@ -472,7 +477,7 @@ jobs:
 
       - name: 🧧 Create GitHub Release => (${{ env.BUILD_DATE }})
         env:
-          ANYKERNEL3_FILE: "${{ env.WORKSPACE }}/AnyKernel3-${{ env.KERNEL_NAME }}-${{ env.BUILD_DATE }}"
+          ANYKERNEL3_FILE: "${{ env.WORKSPACE }}/${{ KERNEL_KERNELNAME }}-${{ KERNEL_DEVICE }}-${{ KERNEL_CLANGNAME }}${{ KERNEL_ANDROIDVERSION }}-${{ env.BUILD_DATE }}"
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPO_OWNER: EduardoA3677
           REPO_NAME: Kernel-Builder-Next
