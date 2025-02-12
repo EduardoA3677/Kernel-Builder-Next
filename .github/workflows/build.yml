@@ -476,14 +476,10 @@ jobs:
       - name: 🧧 Create GitHub Release => (${{ env.BUILD_DATE }})
         env:
           ANYKERNEL3_FILE: "${{ env.WORKSPACE }}/AnyKernel3-${{ env.KERNEL_NAME }}-${{ env.BUILD_DATE }}"
-          token: ${{ secrets.GITHUB_TOKEN }}
-        continue-on-error: true
-        uses: softprops/action-gh-release@v2
-        if: ${{ env.USE_ANYKERNEL3 == 'true' && env.CONFIRM_RELEASE == 'true' }}
-        with:
-          tag_name: v${{ env.BUILD_DATE }}.${{ github.run_number }}
-          files: "${{ env.ANYKERNEL3_FILE }}.zip"
-          generate_release_notes: true
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO_OWNER: EduardoA3677
+          REPO_NAME: Kernel-Builder-Next
+          RELEASE_NAME: "Kernels With KernelSU Next & SUSFS v1.5.3"
           RELEASE_NOTES: |
             ## Release Notes for v${{ env.BUILD_DATE }}.${{ github.run_number }}
     
@@ -495,3 +491,10 @@ jobs:
             - [+] LLVM
             - [+] IAS
             - [+] Magic Mount Support
+        continue-on-error: true
+        uses: softprops/action-gh-release@v2
+        if: ${{ env.USE_ANYKERNEL3 == 'true' && env.CONFIRM_RELEASE == 'true' }}
+        with:
+          tag_name: v${{ env.BUILD_DATE }}.${{ github.run_number }}
+          files: "${{ env.ANYKERNEL3_FILE }}.zip"
+          generate_release_notes: true
