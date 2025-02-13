@@ -173,6 +173,9 @@ jobs:
                 *.rar)
                   unrar x "$filename" $toolchain_name
                   ;;
+                *.xz)
+                  tar xvf "$filename"
+                  ;;
                 *)
                   echo "unknown file type: $filename"
                   ;;
