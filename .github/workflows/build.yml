@@ -174,7 +174,7 @@ jobs:
                   unrar x "$filename" $toolchain_name
                   ;;
                 *.xz)
-                  tar xvf "$filename"
+                  tar xvf "$filename" -C $toolchain_name
                   ;;
                 *)
                   echo "unknown file type: $filename"
