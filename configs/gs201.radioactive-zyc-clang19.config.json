@@ -20,7 +20,7 @@
             },
           {
             "url": "https://github.com/mvaisakh/gcc-build/releases/download/31032024/eva-gcc-arm64-31032024.xz",
-            "name": "gcc",
+            "name": "gcc-arm64",
             "binaryEnv": [
                 "bin"
             ]
@@ -38,7 +38,7 @@
             "LTO": "thin",
             "CC_COMPAT": "",
             "externalCommands": { 
-              "CROSS_COMPILE": "gcc/bin/aarch64-linux-gnu-",
+              "CROSS_COMPILE": "gcc-arm64/bin/aarch64-linux-gnu-",
               "AS": "clang/bin/llvm-as",
               "AR": "clang/bin/llvm-ar",
               "NM": "clang/bin/llvm-nm",
@@ -48,8 +48,8 @@
               "LD": "clang/bin/ld.lld",
               "READELF": "clang/bin/llvm-readelf",
               "OBJSIZE": "clang/bin/llvm-size",
-              "HOSTCC": "gcc/bin/gcc",
-              "HOSTCXX": "gcc/bin/g++",
+              "HOSTCC": "gcc-arm64/bin/gcc",
+              "HOSTCXX": "gcc-arm64/bin/g++",
               "HOSTAR": "clang/bin/llvm-ar",
               "HOSTLD": "clang/bin/ld.lld"
             } 
