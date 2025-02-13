@@ -12,7 +12,7 @@
           }, 
           "toolchains": [ 
             {  
-               "url": "https://github.com/XSans0/WeebX-Clang/releases/download/WeebX-Clang-19.1.5-release/WeebX-Clang-19.1.5.tar.gz",  
+               "url": "https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9/+archive/refs/tags/android-12.1.0_r27.tar.gz",  
                "name": "gcc-arm64",  
                "binaryEnv": [
                 "bin"
