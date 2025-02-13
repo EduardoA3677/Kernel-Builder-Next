@@ -21,7 +21,7 @@
             },
           {
             "url": "https://github.com/mvaisakh/gcc-build/releases/download/31032024/eva-gcc-arm64-31032024.xz",
-            "name": "gcc64",
+            "name": "gcc",
             "binaryEnv": [
                 "bin"
             ]
