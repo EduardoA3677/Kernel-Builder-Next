@@ -380,6 +380,7 @@ jobs:
           echo "🤔 PATH Variable: $PATH"
           export KBUILD_BUILD_HOST=Github-Action
           export KBUILD_BUILD_USER=$(echo ${{ github.actor }} | tr A-Z a-z)
+          sed -i 's/^EXTRA_CFLAGS += -Wno-stringop-overread/#&/' drivers/net/wireless/realtek/rtl8812au/Makefile
           make ${{ env.ARGS }} ${{ env.KERNEL_DEFCONFIG_PATH }}
           make ${{ env.ARGS }}
           cp /home/runner/work/Kernel-Builder-Next/Kernel-Builder-Next/out/arch/arm64/boot/dts/google/gs201-a0.dtb /home/runner/work/Kernel-Builder-Next/Kernel-Builder-Next/out/arch/arm64/boot/dts/google/dtb
