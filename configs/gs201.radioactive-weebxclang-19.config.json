@@ -13,7 +13,7 @@
           "toolchains": [ 
             {  
                "url": "https://github.com/XSans0/WeebX-Clang/releases/download/WeebX-Clang-19.1.5-release/WeebX-Clang-19.1.5.tar.gz",  
-               "name": "clang",  
+               "name": "gcc",  
                "binaryEnv": [
                 "bin"
             ]  
