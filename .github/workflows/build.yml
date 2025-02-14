@@ -105,9 +105,6 @@ jobs:
             zip unzip tar gzip bzip2 rar unrar g++-multilib bison gperf zlib1g-dev automake \
             binutils openssl kmod cpio flex libelf-dev libtfm-dev ca-certificates xz-utils aria2 pigz
  
-          # Usar pigz en lugar de gzip para mejorar velocidad de compresión
-          sudo update-alternatives --set gzip /usr/bin/pigz
- 
           # Limpiar caché para liberar espacio
           echo "📌 Estado de memoria antes de Swap:"
           free -h
