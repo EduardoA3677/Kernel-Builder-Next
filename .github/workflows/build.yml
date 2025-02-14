@@ -157,27 +157,32 @@ jobs:
               mkdir -p $toolchain_name
 
               # Download archive
-              aria2c "$toolchain_url"
 
               # Get filename
               filename="${toolchain_url##*/}"
               case "$filename" in
                 *.zip)
+                  aria2c -o "$filename" "$toolchain_url"
                   unzip -d $toolchain_name "$filename"
                   ;;
                 *.tar)
+                  aria2c -o "$filename" "$toolchain_url"
                   tar xvf "$filename" -C $toolchain_name
                   ;;
                 *.tar.gz)
+                  aria2c -o "$filename" "$toolchain_url"
                   tar zxvf "$filename" -C $toolchain_name
                   ;;
                 *.tar.zst)
+                  aria2c -o "$filename" "$toolchain_url"
                   tar xvf "$filename" -C $toolchain_name
                   ;;
                 *.rar)
+                  aria2c -o "$filename" "$toolchain_url"
                   unrar x "$filename" $toolchain_name
                   ;;
                 *.xz)
+                  aria2c -o "$filename" "$toolchain_url"
                   tar xvf "$filename" -C $toolchain_name
                   ;;
                 *)
