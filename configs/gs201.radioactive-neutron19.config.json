@@ -1,0 +1,72 @@
+
+[
+    {
+        "kernelSource": { 
+            "name": "Google-Pixel-7-Pro-Radioactive-aosp", 
+            "repo": "https://github.com/EduardoA3677/RadioactiveKernel_Pantah.git", 
+            "branch": "a15-susfsnext", 
+            "device": "gs201",
+            "clangname": "Neutron-V19",
+            "kernelname": "Radioactive",
+            "androidversion": "A15",
+            "defconfig": "radioactive_defconfig" 
+          },
+          "toolchains": [ 
+            {  
+               "url": "https://github.com/Neutron-Toolchains/clang-build-catalogue/releases/download/10032024/neutron-clang-10032024.tar.zst",  
+               "name": "clang",  
+               "binaryEnv": [
+                "bin"
+            ]  
+            },
+            {  
+               "url": "https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9/+archive/refs/tags/android-12.1.0_r27.tar.gz",  
+               "name": "gcc",  
+               "binaryEnv": [
+                "bin"
+            ]
+           }
+          ], 
+          "enableCcache": false, 
+          "params": { 
+            "ARCH": "arm64",
+            "CC": "clang/bin/clang",
+            "CXX": "clang/bin/clang++",
+            "CLANG_TRIPLE": "aarch64-linux-gnu-",
+            "LLVM": "1",
+            "LLVM_IAS": "1",
+            "LTO": "full",
+            "externalCommands": { 
+              "CC": "clang/bin/clang",
+              "CROSS_COMPILE": "gcc/bin/aarch64-linux-android-",
+              "HOSTCC": "clang/bin/clang",
+              "HOSTCXX": "clang/bin/clang++",
+              "HOSTLD": "clang/bin/ld.lld",
+              "HOSTAR": "clang/bin/llvm-ar",
+              "AS": "clang/bin/llvm-as",
+              "AR": "clang/bin/llvm-ar",
+              "NM": "clang/bin/llvm-nm",
+              "OBJCOPY": "clang/bin/llvm-objcopy",
+              "OBJDUMP": "clang/bin/llvm-objdump",
+              "STRIP": "clang/bin/llvm-strip",
+              "LD": "clang/bin/ld.lld",
+              "READELF": "clang/bin/llvm-readelf",
+              "OBJSIZE": "clang/bin/llvm-size"
+            } 
+          }, 
+          "AnyKernel3": { 
+            "use": true, 
+            "release": true,
+            "custom": {
+              "repo": "https://github.com/EduardoA3677/AnyKernel3.git",
+              "branch": "15.0.0-sultan-gs201"
+            }
+          },
+          "enableKernelSU": false, 
+          "KernelSUSFS":{
+            "enable": false,
+            "branches": "gki-android13-5.10"
+          },
+          "enableLXC": true        
+    }
+]

@@ -170,6 +170,9 @@ jobs:
                 *.tar.gz)
                   tar zxvf "$filename" -C $toolchain_name
                   ;;
+                *.tar.zst)
+                  tar xvf "$filename" -C $toolchain_name
+                  ;;
                 *.rar)
                   unrar x "$filename" $toolchain_name
                   ;;
