@@ -19,13 +19,12 @@
             ]  
             },
           {
-            {  
                "url": "https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9/+archive/refs/tags/android-12.1.0_r27.tar.gz",  
                "name": "gcc",  
                "binaryEnv": [
                 "bin"
-            ]  
-            }
+            ]
+           }
           ], 
           "enableCcache": false, 
           "params": { 
@@ -51,7 +50,7 @@
               "LD": "clang/bin/ld.lld",
               "LD_LIBRARY_PATH": "clang/lib",
               "READELF": "clang/bin/llvm-readelf",
-              "OBJSIZE": "clang/bin/llvm-size",
+              "OBJSIZE": "clang/bin/llvm-size"
             } 
           }, 
           "AnyKernel3": { 
