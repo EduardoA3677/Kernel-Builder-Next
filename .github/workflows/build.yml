@@ -39,7 +39,7 @@ jobs:
     needs:
       - Read-configuration
     strategy:
-      max-parallel: 4
+      max-parallel: 6
       fail-fast: false
       matrix:
         CONFIG: ${{ fromJSON(needs.Read-configuration.outputs.CONFIGS) }}
@@ -93,25 +93,42 @@ jobs:
       # Install prerequisites for Ubuntu
       - name: ⭐ Install prerequisites
         run: |
-          sudo apt-get update
-          sudo apt-get install --no-install-recommends -y curl git ftp lftp wget libarchive-tools ccache python2 python2-dev python3
-          sudo apt-get install --no-install-recommends -y pngcrush schedtool dpkg-dev liblz4-tool make optipng maven device-tree-compiler 
-          sudo apt-get install --no-install-recommends -y libc6-dev-i386 lib32ncurses5-dev libx11-dev lib32z-dev libgl1-mesa-dev xsltproc
-          sudo apt-get install --no-install-recommends -y libxml2-utils libbz2-dev libbz2-1.0 libghc-bzlib-dev squashfs-tools lzop flex tree
-          sudo apt-get install --no-install-recommends -y build-essential bc libssl-dev libfl-dev  gcc-aarch64-linux-gnu 
-          sudo apt-get install --no-install-recommends -y pwgen libswitch-perl policycoreutils minicom libxml-sax-base-perl libxml-simple-perl 
-          sudo apt-get install --no-install-recommends -y zip unzip tar gzip bzip2 rar unrar g++-multilib bison gperf zlib1g-dev automake
-          sudo apt-get install --no-install-recommends -y binutils openssl kmod cpio flex libelf-dev libtfm-dev ca-certificates xz-utils aria2 pigz
-          export SWAP_FILE=$(swapon --show=NAME | tail -n 1)
-           if [ -f /bin/swapon ]; then
-             echo "Setting Up Swap"
-             sudo swapoff $SWAP_FILE
-             sudo rm -v $SWAP_FILE
-             sudo fallocate -l 16G $SWAP_FILE
-             sudo chmod 600 -v $SWAP_FILE
-             sudo mkswap $SWAP_FILE
-             sudo swapon $SWAP_FILE
-          fi
+         sudo apt-get update -y
+         sudo DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
+         curl git ftp lftp wget libarchive-tools ccache python2 python2-dev python3 \
+         pngcrush schedtool dpkg-dev liblz4-tool make optipng maven device-tree-compiler \
+         libc6-dev-i386 lib32ncurses5-dev libx11-dev lib32z-dev libgl1-mesa-dev xsltproc \
+         libxml2-utils libbz2-dev libbz2-1.0 libghc-bzlib-dev squashfs-tools lzop flex tree \
+         build-essential bc libssl-dev libfl-dev gcc-aarch64-linux-gnu \
+         pwgen libswitch-perl policycoreutils minicom libxml-sax-base-perl libxml-simple-perl \
+         zip unzip tar pigz rar unrar g++-multilib bison gperf zlib1g-dev automake \
+         binutils openssl kmod cpio flex libelf-dev libtfm-dev ca-certificates xz-utils aria2
+
+         # Usar pigz en lugar de gzip para mejorar velocidad de compresión
+         sudo update-alternatives --set gzip /usr/bin/pigz
+
+         # Limpiar caché para liberar espacio
+         echo "📌 Estado de memoria antes de Swap:"
+         free -h
+    
+         # Desactivar cualquier swap existente
+         sudo swapoff -a
+
+         # Crear el archivo de swap
+         sudo fallocate -l 16G /swapfile
+         sudo chmod 600 /swapfile
+         sudo mkswap /swapfile
+         sudo swapon /swapfile
+
+         echo "✅ Swap activada correctamente."
+         free -h  
+         # Verificar el estado de la memoria
+         # Ajustar la preferencia de uso de Swap
+         sudo sysctl vm.swappiness=10
+         echo 10 | sudo tee /proc/sys/vm/swappiness
+
+         echo "✅ Optimización de memoria aplicada."
+    
       # Initialize ccache
       - name: 🚄 Setup ccache
         if: ${{ env.ENABLE_CCACHE == 'true' }}
@@ -171,27 +188,27 @@ jobs:
               filename="${toolchain_url##*/}"
               case "$filename" in
                 *.zip)
-                  aria2c -o "$filename" "$toolchain_url"
+                  aria2c -x 16 -s 16 -o "$filename" "$toolchain_url"
                   unzip -d $toolchain_name "$filename"
                   ;;
                 *.tar)
-                  aria2c -o "$filename" "$toolchain_url"
+                  aria2c -x 16 -s 16 -o "$filename" "$toolchain_url"
                   tar xvf "$filename" -C $toolchain_name
                   ;;
                 *.tar.gz)
-                  aria2c -o "$filename" "$toolchain_url"
+                  aria2c -x 16 -s 16 -o "$filename" "$toolchain_url"
                   tar zxvf "$filename" -C $toolchain_name
                   ;;
                 *.tar.zst)
-                  aria2c -o "$filename" "$toolchain_url"
+                  aria2c -x 16 -s 16 -o "$filename" "$toolchain_url"
                   tar xvf "$filename" -C $toolchain_name
                   ;;
                 *.rar)
-                  aria2c -o "$filename" "$toolchain_url"
+                  aria2c -x 16 -s 16 -o "$filename" "$toolchain_url"
                   unrar x "$filename" $toolchain_name
                   ;;
                 *.xz)
-                  aria2c -o "$filename" "$toolchain_url"
+                  aria2c -x 16 -s 16 -o "$filename" "$toolchain_url"
                   tar xvf "$filename" -C $toolchain_name
                   ;;
                 *)
