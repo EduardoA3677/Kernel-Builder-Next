@@ -18,15 +18,7 @@
                "binaryEnv": [
                 "bin"
             ]  
-            },
-          {
-            "repo": "https://github.com/LineageOS/android_prebuilts_gcc_linux-x86_aarch64_aarch64-linux-android-4.9.git",
-            "branch": "lineage-19.1",
-            "name": "gcc",
-            "binaryEnv": [
-                "bin"
-            ]
-          }
+            }
           ], 
           "enableCcache": false, 
           "params": { 
@@ -40,7 +32,32 @@
             "LTO": "thin",
             "CC_COMPAT": "",
             "externalCommands": { 
-              "CROSS_COMPILE": "gcc/bin/aarch64-linux-android-gnu-",
+              "CROSS_COMPILE": "aarch64-linux-gnu-",
+                make -j$(nproc --all) \
+    ARCH=arm64 \
+    O=out \
+    CC=clang \
+    CROSS_COMPILE="$HOME/gcc-64/bin/${GCC64}-" \
+    AR=llvm-ar \
+    AS=llvm-as \
+    NM=llvm-nm \
+    STRIP=llvm-strip \
+    OBJCOPY=llvm-objcopy \
+    OBJDUMP=llvm-objdump \
+    OBJSIZE=llvm-size \
+    READELF=llvm-readelf \
+    HOSTCC=clang \
+    HOSTCXX=clang++ \
+    HOSTAR=llvm-ar \
+    CLANG_TRIPLE="aarch64-linux-gnu-" \
+    LLVM_IAS=1 \
+    LLVM=1 \
+    LD=ld.lld \
+    LD_LIBRARY_PATH=$HOME/clang/lib \
+    LTO_CLANG=1 \
+    KBUILD_LTO=thin \
+    radioactive_defconfig all
+                
               "AS": "clang/bin/llvm-as",
               "AR": "clang/bin/llvm-ar",
               "NM": "clang/bin/llvm-nm",
@@ -50,10 +67,6 @@
               "LD": "clang/bin/ld.lld",
               "READELF": "clang/bin/llvm-readelf",
               "OBJSIZE": "clang/bin/llvm-size",
-              "HOSTCC": "gcc/bin/aarch64-linux-android-gcc",
-              "HOSTCXX": "gcc/bin/aarch64-linux-android-g++",
-              "HOSTAR": "gcc/bin/aarch64-linux-android-ar",
-              "HOSTLD": "gcc/bin/aarch64-linux-android-ld"
             } 
           }, 
           "AnyKernel3": { 
