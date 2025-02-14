@@ -95,7 +95,7 @@ jobs:
         run: |
           sudo apt-get update -y
 
-          sudo apt install --no-install-recommends -y \
+          sudo apt install -y \
             curl git ftp lftp wget libarchive-tools ccache python2 python2-dev python3 \
             pngcrush schedtool dpkg-dev liblz4-tool make optipng maven device-tree-compiler \
             libc6-dev-i386 lib32ncurses5-dev libx11-dev lib32z-dev libgl1-mesa-dev xsltproc \
