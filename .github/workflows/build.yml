@@ -93,7 +93,7 @@ jobs:
       # Install prerequisites for Ubuntu
       - name: ⭐ Install prerequisites
         run: |
-          sudo apt-get update -y
+          sudo apt-get update
 
           sudo apt install -y \
             curl git ftp lftp wget libarchive-tools ccache python2 python2-dev python3 \
