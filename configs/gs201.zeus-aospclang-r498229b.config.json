@@ -25,9 +25,7 @@
             "ARCH": "arm64",
             "CC": "clang/bin/clang",
             "externalCommands": {
-              "CXX": "clang/bin/clang++",
-              "CLANG_TRIPLE": "aarch64-linux-gnu-",
-              "CROSS_COMPILE": "aarch64-linux-android-",
+              "CROSS_COMPILE": "aarch64-linux-gnu-",
               "HOSTCC": "clang/bin/clang",
               "HOSTCXX": "clang/bin/clang++",
               "HOSTLD": "clang/bin/ld.lld",
@@ -42,6 +40,8 @@
               "LD_LIBRARY_PATH": "clang/lib",
               "READELF": "clang/bin/llvm-readelf",
               "OBJSIZE": "clang/bin/llvm-size",
+              "CXX": "clang/bin/clang++",
+              "CLANG_TRIPLE": "aarch64-linux-gnu-",
               "LLVM": "1",
               "LLVM_IAS": "1",
               "LTO": "thin"

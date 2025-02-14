@@ -25,7 +25,7 @@
             "ARCH": "arm64",
             "CC": "clang/bin/clang",
             "externalCommands": {
-              "CROSS_COMPILE": "aarch64-linux-android-",
+              "CROSS_COMPILE": "aarch64-linux-gnu-",
               "HOSTCC": "clang/bin/clang",
               "HOSTCXX": "clang/bin/clang++",
               "HOSTLD": "clang/bin/ld.lld",
