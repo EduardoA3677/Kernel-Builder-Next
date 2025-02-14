@@ -23,8 +23,8 @@
                "name": "gcc",  
                "binaryEnv": [
                 "bin"
-            ]  
-            }
+            ]
+           }
           ], 
           "enableCcache": false, 
           "params": { 
@@ -50,7 +50,7 @@
               "LD": "clang/bin/ld.lld",
               "LD_LIBRARY_PATH": "clang/lib",
               "READELF": "clang/bin/llvm-readelf",
-              "OBJSIZE": "clang/bin/llvm-size",
+              "OBJSIZE": "clang/bin/llvm-size"
             } 
           }, 
           "AnyKernel3": { 
