@@ -81,10 +81,10 @@ jobs:
       CCACHE_DIR: "${{ github.workspace }}/out"
     steps:
       # Set swap space
-      - name: 📐 Set swap to 10G
+      - name: 📐 Set swap to 16G
         uses: pierotofy/set-swap-space@master
         with:
-          swap-size-gb: 10
+          swap-size-gb: 16
 
       # This action checks-out your CONFIGSitory under $GITHUB_WORKSPACE, so your workflow can access it.
       - name: 😄 Checkout
@@ -95,28 +95,7 @@ jobs:
         run: |
           sudo apt-get update
 
-          sudo DEBIAN_FRONTEND=noninteractive apt-get install --no-install-recommends -y curl git ftp lftp wget libarchive-tools ccache python2 python2-dev python3 pngcrush schedtool dpkg-dev liblz4-tool make optipng maven device-tree-compiler libc6-dev-i386 lib32ncurses5-dev libx11-dev lib32z-dev libgl1-mesa-dev xsltproc libxml2-utils libbz2-dev libbz2-1.0 libghc-bzlib-dev squashfs-tools lzop flex tree build-essential bc libssl-dev libfl-dev  gcc-aarch64-linux-gnu pwgen libswitch-perl policycoreutils minicom libxml-sax-base-perl libxml-simple-perl zip unzip tar gzip bzip2 rar unrar bison gperf zlib1g-dev automake binutils openssl kmod cpio flex libelf-dev libtfm-dev ca-certificates xz-utils aria2 pigz 
-
-          echo "📌 Estado de memoria antes de Swap:"
-          free -h
-     
-          # Desactivar cualquier swap existente
-          sudo swapoff -a
- 
-          # Crear el archivo de swap
-          sudo fallocate -l 16G /swapfile
-          sudo chmod 600 /swapfile
-          sudo mkswap /swapfile
-          sudo swapon /swapfile
- 
-          echo "✅ Swap activada correctamente."
-          free -h  
-          # Verificar el estado de la memoria
-          # Ajustar la preferencia de uso de Swap
-          sudo sysctl vm.swappiness=10
-          echo 10 | sudo tee /proc/sys/vm/swappiness
- 
-          echo "✅ Optimización de memoria aplicada."
+          sudo DEBIAN_FRONTEND=noninteractive apt-get install --no-install-recommends -y curl git ftp lftp wget libarchive-tools ccache python2 python2-dev python3 pngcrush schedtool dpkg-dev liblz4-tool make optipng maven device-tree-compiler libc6-dev-i386 lib32ncurses5-dev libx11-dev lib32z-dev libgl1-mesa-dev xsltproc libxml2-utils libbz2-dev libbz2-1.0 libghc-bzlib-dev squashfs-tools lzop flex tree build-essential bc libssl-dev libfl-dev  gcc-aarch64-linux-gnu pwgen libswitch-perl policycoreutils minicom libxml-sax-base-perl libxml-simple-perl zip unzip tar gzip bzip2 rar unrar bison gperf zlib1g-dev automake binutils openssl kmod cpio flex libelf-dev libtfm-dev ca-certificates xz-utils aria2 pigz gzip bzip2
     
       # Initialize ccache
       - name: 🚄 Setup ccache
