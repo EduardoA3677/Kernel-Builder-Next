@@ -1,7 +1,7 @@
 [
     {
         "kernelSource": { 
-            "name": "Google-Pixel-7-Pro-Radioactive-WeebX", 
+            "name": "gs201-WeebX-v19", 
             "repo": "https://github.com/EduardoA3677/RadioactiveKernel_Pantah.git", 
             "branch": "a15-susfsnext",
             "device": "gs201",

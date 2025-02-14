@@ -2,7 +2,7 @@
 [
     {
         "kernelSource": { 
-            "name": "Google-Pixel-7-Pro-Radioactive-aosp", 
+            "name": "gs201-AOSP-r522817", 
             "repo": "https://github.com/EduardoA3677/RadioactiveKernel_Pantah.git", 
             "branch": "a15-susfsnext", 
             "device": "gs201",

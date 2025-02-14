@@ -1,7 +1,7 @@
 [
     {
         "kernelSource": { 
-            "name": "Google-Pixel-7-Pro-Radioactive-zyc", 
+            "name": "gs201-ZYC-v17", 
             "repo": "https://github.com/EduardoA3677/RadioactiveKernel_Pantah.git", 
             "branch": "a15-susfsnext", 
             "device": "gs201",
