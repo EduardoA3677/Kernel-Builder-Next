@@ -40,7 +40,6 @@
               "READELF": "clang/bin/llvm-readelf",
               "OBJSIZE": "clang/bin/llvm-size",
               "CXX": "clang/bin/clang++",
-              "CLANG_TRIPLE": "aarch64-linux-gnu-",
               "LLVM": "1",
               "LLVM_IAS": "1",
               "LTO": "thin"
