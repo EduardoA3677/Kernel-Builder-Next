@@ -23,7 +23,6 @@
           "enableCcache": false, 
           "params": { 
             "ARCH": "arm64",
-            "SUBARCH": "arm64",
             "CC": "clang/bin/clang",
             "externalCommands": {
               "CROSS_COMPILE": "aarch64-linux-android-",
@@ -38,6 +37,7 @@
               "OBJDUMP": "clang/bin/llvm-objdump",
               "STRIP": "clang/bin/llvm-strip",
               "LD": "clang/bin/ld.lld",
+              "LD_LIBRARY_PATH": "clang/lib",
               "READELF": "clang/bin/llvm-readelf",
               "OBJSIZE": "clang/bin/llvm-size",
               "CXX": "clang/bin/clang++",
