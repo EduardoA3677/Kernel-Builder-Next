@@ -210,9 +210,10 @@ jobs:
           echo "🤔 PATH Variable: $PATH"
 
           ARCH=$(echo $PARAMS | jq -r ".ARCH")
+          SUBARCH=$(echo $PARAMS | jq -r ".SUBARCH")
           CC=$(echo $PARAMS | jq -r ".CC")
 
-          args="-j$(nproc --all) O=${{ env.OUT_DIR }} ARCH=$ARCH LTO=thin LLVM=1 LLVM_IAS=1"
+          args="-j$(nproc --all) O=${{ env.OUT_DIR }} ARCH=$ARCH SUBARCH=$SUBARCH"
           if [ -n "$CC" ]; then
 
             if [[ "$CC" == *"/"* ]]; then

@@ -22,6 +22,7 @@
           "enableCcache": false, 
           "params": { 
             "ARCH": "arm64",
+            "SUBARCH": "arm64",
             "CC": "clang/bin/clang",
             "externalCommands": {
               "CROSS_COMPILE": "aarch64-linux-android-",
