@@ -36,8 +36,6 @@
             "LLVM_IAS": "1",
             "LTO": "thin",
             "externalCommands": { 
-              "CC": "clang/bin/clang",
-              "CROSS_COMPILE": "gcc/bin/aarch64-linux-android-",
               "HOSTCC": "clang/bin/clang",
               "HOSTCXX": "clang/bin/clang++",
               "HOSTLD": "clang/bin/ld.lld",
