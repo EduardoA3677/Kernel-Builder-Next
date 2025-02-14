@@ -157,27 +157,27 @@ jobs:
               case "$filename" in
                 *.zip)
                   aria2c -x 16 -s 16 -o "$filename" "$toolchain_url"
-                  unzip -d $toolchain_name "$filename"
+                  unzip -q -d $toolchain_name "$filename"
                   ;;
                 *.tar)
                   aria2c -x 16 -s 16 -o "$filename" "$toolchain_url"
-                  tar xvf "$filename" -C $toolchain_name
+                  tar xf "$filename" -C $toolchain_name
                   ;;
                 *.tar.gz)
                   aria2c -x 16 -s 16 -o "$filename" "$toolchain_url"
-                  tar zxvf "$filename" -C $toolchain_name
+                  tar zxf "$filename" -C $toolchain_name
                   ;;
                 *.tar.zst)
                   aria2c -x 16 -s 16 -o "$filename" "$toolchain_url"
-                  tar xvf "$filename" -C $toolchain_name
+                  tar xf "$filename" -C $toolchain_name
                   ;;
                 *.rar)
                   aria2c -x 16 -s 16 -o "$filename" "$toolchain_url"
-                  unrar x "$filename" $toolchain_name
+                  unrar x -inul "$filename" $toolchain_name
                   ;;
                 *.xz)
                   aria2c -x 16 -s 16 -o "$filename" "$toolchain_url"
-                  tar xvf "$filename" -C $toolchain_name
+                  tar xf "$filename" -C $toolchain_name
                   ;;
                 *)
                   echo "unknown file type: $filename"
@@ -385,6 +385,7 @@ jobs:
         run: |
           echo "🤔 PATH Variable: $PATH"
           export KBUILD_BUILD_HOST=Github-Action
+          echo "🤔 Build Kernel with: ${{ env.ARGS }}"
           export KBUILD_BUILD_USER=$(echo ${{ github.actor }} | tr A-Z a-z)
           make -j$(nproc --all) ${{ env.ARGS }} ${{ env.KERNEL_DEFCONFIG_PATH }}
           make -j$(nproc --all) ${{ env.ARGS }}
