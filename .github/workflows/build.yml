@@ -212,7 +212,7 @@ jobs:
           ARCH=$(echo $PARAMS | jq -r ".ARCH")
           CC=$(echo $PARAMS | jq -r ".CC")
 
-          args="-j${{ env.THREAD }} O=${{ env.OUT_DIR }} ARCH=$ARCH"
+          args="-j$(nproc --all) O=${{ env.OUT_DIR }} ARCH=$ARCH LTO=thin LLVM=1 LLVM_IAS=1"
           if [ -n "$CC" ]; then
 
             if [[ "$CC" == *"/"* ]]; then
@@ -387,8 +387,8 @@ jobs:
           export KBUILD_BUILD_HOST=Github-Action
           echo "🤔 Build Kernel with: ${{ env.ARGS }}"
           export KBUILD_BUILD_USER=$(echo ${{ github.actor }} | tr A-Z a-z)
-          make -j$(nproc --all) ${{ env.ARGS }} ${{ env.KERNEL_DEFCONFIG_PATH }}
-          make -j$(nproc --all) ${{ env.ARGS }}
+          make ${{ env.ARGS }} ${{ env.KERNEL_DEFCONFIG_PATH }}
+          make ${{ env.ARGS }}
           cp /home/runner/work/Kernel-Builder-Next/Kernel-Builder-Next/out/arch/arm64/boot/dts/google/gs201-a0.dtb /home/runner/work/Kernel-Builder-Next/Kernel-Builder-Next/out/arch/arm64/boot/dts/google/dtb
           # tree ${{ env.OUT_DIR }}
       
