@@ -94,14 +94,14 @@ jobs:
       - name: ⭐ Install prerequisites
         run: |
          sudo apt-get update -y
-         sudo apt-get install DEBIAN_FRONTEND=noninteractive --no-install-recommends -y curl git ftp lftp wget libarchive-tools ccache python2 python2-dev python3 \
+         sudo DEBIAN_FRONTEND=noninteractive apt-get install --no-install-recommends -y curl git ftp lftp wget libarchive-tools ccache python2 python2-dev python3 \
          pngcrush schedtool dpkg-dev liblz4-tool make optipng maven device-tree-compiler \
          libc6-dev-i386 lib32ncurses5-dev libx11-dev lib32z-dev libgl1-mesa-dev xsltproc \
          libxml2-utils libbz2-dev libbz2-1.0 libghc-bzlib-dev squashfs-tools lzop flex tree \
          build-essential bc libssl-dev libfl-dev  gcc-aarch64-linux-gnu \
          pwgen libswitch-perl policycoreutils minicom libxml-sax-base-perl libxml-simple-perl \ 
          zip unzip tar gzip bzip2 rar unrar g++-multilib bison gperf zlib1g-dev automake \
-         binutils openssl kmod cpio flex libelf-dev libtfm-dev ca-certificates xz-utils aria2 pigz
+         binutils openssl kmod cpio flex libelf-dev libtfm-dev ca-certificates xz-utils aria2 pigz \
 
          # Usar pigz en lugar de gzip para mejorar velocidad de compresión
          sudo update-alternatives --set gzip /usr/bin/pigz
