@@ -1,19 +1,18 @@
-
 [
     {
         "kernelSource": { 
-            "name": "gs201-AOSP-r498229b", 
+            "name": "gs201-WeebX-v19", 
             "repo": "https://github.com/EduardoA3677/RadioactiveKernel_Pantah.git", 
-            "branch": "a15-susfsnext", 
+            "branch": "a15-susfsnext",
             "device": "gs201",
-            "clangname": "AOSP-r498229b",
-            "kernelname": "Radioactive",
+            "clangname": "WeebX",
+            "kernelname": "Zeus",
             "androidversion": "A15",
-            "defconfig": "radioactive_defconfig" 
-          },
+            "defconfig": "zeus_defconfig" 
+          }, 
           "toolchains": [ 
             {  
-               "url": "https://android.googlesource.com/platform//prebuilts/clang/host/linux-x86/+archive/ba7da711271d310dda6b5134d8f4448f6a276a27/clang-r498229b.tar.gz",  
+               "url": "https://github.com/XSans0/WeebX-Clang/releases/download/WeebX-Clang-19.1.5-release/WeebX-Clang-19.1.5.tar.gz",  
                "name": "clang",  
                "binaryEnv": [
                 "bin"
@@ -26,8 +25,6 @@
             "SUBARCH": "arm64",
             "CC": "clang/bin/clang",
             "externalCommands": {
-              "CXX": "clang/bin/clang++",
-              "CLANG_TRIPLE": "aarch64-linux-gnu-",
               "CROSS_COMPILE": "aarch64-linux-android-",
               "HOSTCC": "clang/bin/clang",
               "HOSTCXX": "clang/bin/clang++",
@@ -42,6 +39,8 @@
               "LD": "clang/bin/ld.lld",
               "READELF": "clang/bin/llvm-readelf",
               "OBJSIZE": "clang/bin/llvm-size",
+              "CXX": "clang/bin/clang++",
+              "CLANG_TRIPLE": "aarch64-linux-gnu-",
               "LLVM": "1",
               "LLVM_IAS": "1",
               "LTO": "thin"

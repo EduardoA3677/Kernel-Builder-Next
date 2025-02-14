@@ -1,19 +1,18 @@
-
 [
     {
         "kernelSource": { 
-            "name": "gs201-AOSP-r522817", 
+            "name": "gs201-zyc-v19", 
             "repo": "https://github.com/EduardoA3677/RadioactiveKernel_Pantah.git", 
             "branch": "a15-susfsnext", 
             "device": "gs201",
-            "clangname": "AOSP",
-            "kernelname": "Radioactive",
+            "clangname": "ZyC",
+            "kernelname": "Zeus",
             "androidversion": "A15",
-            "defconfig": "radioactive_defconfig" 
-          },
+            "defconfig": "zeus_defconfig" 
+          }, 
           "toolchains": [ 
             {  
-               "url": "https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86/+archive/refs/heads/master/clang-r522817.tar.gz",  
+               "url": "https://github.com/ZyCromerZ/Clang/releases/download/19.0.0git-20240723-release/Clang-19.0.0git-20240723.tar.gz",  
                "name": "clang",  
                "binaryEnv": [
                 "bin"

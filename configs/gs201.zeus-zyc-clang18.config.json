@@ -1,18 +1,18 @@
 [
     {
         "kernelSource": { 
-            "name": "gs201-WeebX-v19", 
+            "name": "gs201-zyc-v18", 
             "repo": "https://github.com/EduardoA3677/RadioactiveKernel_Pantah.git", 
-            "branch": "a15-susfsnext",
+            "branch": "a15-susfsnext", 
             "device": "gs201",
-            "clangname": "WeebX",
-            "kernelname": "Radioactive",
+            "clangname": "ZyC-V18",
+            "kernelname": "Zeus",
             "androidversion": "A15",
-            "defconfig": "radioactive_defconfig" 
+            "defconfig": "zeus_defconfig" 
           }, 
           "toolchains": [ 
             {  
-               "url": "https://github.com/XSans0/WeebX-Clang/releases/download/WeebX-Clang-19.1.5-release/WeebX-Clang-19.1.5.tar.gz",  
+               "url": "https://github.com/ZyCromerZ/Clang/releases/download/18.0.0git-20240124-release/Clang-18.0.0git-20240124.tar.gz",  
                "name": "clang",  
                "binaryEnv": [
                 "bin"

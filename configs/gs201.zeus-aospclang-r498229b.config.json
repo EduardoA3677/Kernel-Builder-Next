@@ -1,18 +1,19 @@
+
 [
     {
         "kernelSource": { 
-            "name": "gs201-zyc-v19", 
+            "name": "gs201-AOSP-r498229b", 
             "repo": "https://github.com/EduardoA3677/RadioactiveKernel_Pantah.git", 
             "branch": "a15-susfsnext", 
             "device": "gs201",
-            "clangname": "ZyC",
-            "kernelname": "Radioactive",
+            "clangname": "AOSP-r498229b",
+            "kernelname": "Zeus",
             "androidversion": "A15",
-            "defconfig": "radioactive_defconfig" 
-          }, 
+            "defconfig": "zeus_defconfig" 
+          },
           "toolchains": [ 
             {  
-               "url": "https://github.com/ZyCromerZ/Clang/releases/download/19.0.0git-20240723-release/Clang-19.0.0git-20240723.tar.gz",  
+               "url": "https://android.googlesource.com/platform//prebuilts/clang/host/linux-x86/+archive/ba7da711271d310dda6b5134d8f4448f6a276a27/clang-r498229b.tar.gz",  
                "name": "clang",  
                "binaryEnv": [
                 "bin"
@@ -25,6 +26,8 @@
             "SUBARCH": "arm64",
             "CC": "clang/bin/clang",
             "externalCommands": {
+              "CXX": "clang/bin/clang++",
+              "CLANG_TRIPLE": "aarch64-linux-gnu-",
               "CROSS_COMPILE": "aarch64-linux-android-",
               "HOSTCC": "clang/bin/clang",
               "HOSTCXX": "clang/bin/clang++",
@@ -39,8 +42,6 @@
               "LD": "clang/bin/ld.lld",
               "READELF": "clang/bin/llvm-readelf",
               "OBJSIZE": "clang/bin/llvm-size",
-              "CXX": "clang/bin/clang++",
-              "CLANG_TRIPLE": "aarch64-linux-gnu-",
               "LLVM": "1",
               "LLVM_IAS": "1",
               "LTO": "thin"
