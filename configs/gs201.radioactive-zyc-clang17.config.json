@@ -34,7 +34,7 @@
             "CLANG_TRIPLE": "aarch64-linux-gnu-",
             "LLVM": "1",
             "LLVM_IAS": "1",
-            "LTO": "full",
+            "LTO": "thin",
             "externalCommands": { 
               "CC": "clang/bin/clang",
               "CROSS_COMPILE": "gcc/bin/aarch64-linux-android-",
