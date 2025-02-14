@@ -18,46 +18,30 @@
                "binaryEnv": [
                 "bin"
             ]  
+            },
+            {  
+               "url": "https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9/+archive/refs/tags/android-12.1.0_r27.tar.gz",  
+               "name": "gcc",  
+               "binaryEnv": [
+                "bin"
+            ]  
             }
           ], 
           "enableCcache": false, 
           "params": { 
             "ARCH": "arm64", 
-            "SUBARCH": "arm64",
-            "CC": "clang/bin/clang",
-            "CXX": "clang/bin/clang++",
             "CLANG_TRIPLE": "aarch64-linux-gnu-",
             "LLVM": "1",
             "LLVM_IAS": "1",
             "LTO": "thin",
-            "CC_COMPAT": "",
+            "LTO_CLANG": "1",
+            "KBUILD_LTO": "thin",
             "externalCommands": { 
-              "CROSS_COMPILE": "aarch64-linux-gnu-",
-                make -j$(nproc --all) \
-    ARCH=arm64 \
-    O=out \
-    CC=clang \
-    CROSS_COMPILE="$HOME/gcc-64/bin/${GCC64}-" \
-    AR=llvm-ar \
-    AS=llvm-as \
-    NM=llvm-nm \
-    STRIP=llvm-strip \
-    OBJCOPY=llvm-objcopy \
-    OBJDUMP=llvm-objdump \
-    OBJSIZE=llvm-size \
-    READELF=llvm-readelf \
-    HOSTCC=clang \
-    HOSTCXX=clang++ \
-    HOSTAR=llvm-ar \
-    CLANG_TRIPLE="aarch64-linux-gnu-" \
-    LLVM_IAS=1 \
-    LLVM=1 \
-    LD=ld.lld \
-    LD_LIBRARY_PATH=$HOME/clang/lib \
-    LTO_CLANG=1 \
-    KBUILD_LTO=thin \
-    radioactive_defconfig all
-                
+              "CC": "clang/bin/clang",
+              "CROSS_COMPILE": "gcc/bin/aarch64-linux-android-",
+              "HOSTCC": "clang/bin/clang",
+              "HOSTCXX": "clang/bin/clang++",
+              "HOSTAR": "clang/bin/llvm-ar",
               "AS": "clang/bin/llvm-as",
               "AR": "clang/bin/llvm-ar",
               "NM": "clang/bin/llvm-nm",
@@ -65,6 +49,7 @@
               "OBJDUMP": "clang/bin/llvm-objdump",
               "STRIP": "clang/bin/llvm-strip",
               "LD": "clang/bin/ld.lld",
+              "LD_LIBRARY_PATH": "clang/lib",
               "READELF": "clang/bin/llvm-readelf",
               "OBJSIZE": "clang/bin/llvm-size",
             } 
