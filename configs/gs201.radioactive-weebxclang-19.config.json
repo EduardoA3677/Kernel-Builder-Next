@@ -23,11 +23,6 @@
           "params": { 
             "ARCH": "arm64",
             "CC": "clang/bin/clang",
-            "CXX": "clang/bin/clang++",
-            "CLANG_TRIPLE": "aarch64-linux-gnu-",
-            "LLVM": "1",
-            "LLVM_IAS": "1",
-            "LTO": "thin",
             "externalCommands": {
               "CROSS_COMPILE": "aarch64-linux-android-",
               "HOSTCC": "clang/bin/clang",
@@ -42,7 +37,12 @@
               "STRIP": "clang/bin/llvm-strip",
               "LD": "clang/bin/ld.lld",
               "READELF": "clang/bin/llvm-readelf",
-              "OBJSIZE": "clang/bin/llvm-size"
+              "OBJSIZE": "clang/bin/llvm-size",
+              "CXX": "clang/bin/clang++",
+              "CLANG_TRIPLE": "aarch64-linux-gnu-",
+              "LLVM": "1",
+              "LLVM_IAS": "1",
+              "LTO": "thin"
             } 
           }, 
           "AnyKernel3": { 
