@@ -57,6 +57,6 @@
             "enable": false,
             "branches": "gki-android13-5.10"
           },
-          "enableLXC": true        
+          "enableLXC": false        
     }
 ]
